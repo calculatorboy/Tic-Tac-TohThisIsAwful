@@ -1,15 +1,13 @@
 # Tic-Tac-TohThisIsAwful
 Tic Tac Toe but really bad.
 
-How to build
-After installing DevkitPro and Grrlib.
+How to build:
 
-Go to this directory
+After installing DevkitPro and Grrlib go to the directory of the code and type
 
 ```make```
-
-That is it.
-
+in devkitpro 
+or just download the release like a normal person.
 
 
  
