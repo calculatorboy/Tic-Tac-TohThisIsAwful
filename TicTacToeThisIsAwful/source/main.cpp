@@ -6,7 +6,6 @@ Minimum Code To Use GRRLIB
 #include <grrlib.h>
 #include <stdlib.h>
 #include <wiiuse/wpad.h>
-#include <vector>
 #include <math.h>
 #include <thread>
 #include "font_ttf.h"
@@ -91,6 +90,7 @@ int main(int argc, char **argv) {
 		// If [HOME] was pressed on the first Wiimote, break out of the loop
 		if (WPAD_ButtonsDown(0) & WPAD_BUTTON_HOME) break;
 		// ---------------------------------------------------------------------
+		//This garbage variable is a bit redundant here because of the inside if statement, but it might not always be.
 		if ((WPAD_ButtonsDown(WPAD_CHAN_0) & WPAD_BUTTON_A) && garbage == false) {
 			for (int i = 0; i < 9; i++) {
 				if (ptInRect(rectangles[i], touchX, touchY)) {
@@ -162,6 +162,7 @@ int main(int argc, char **argv) {
 		GRRLIB_Line(0, 160, 640, 160, 0xFFFFFFFF);
 		GRRLIB_Line(0, 320, 640, 320, 0xFFFFFFFF);
 		//(const char*) was causing problems
+		//also yes I know there is an easier way to do this than printing them every time
 		GRRLIB_PrintfTTF(92, 36, font, anotherSomething(filler, 0), 64, 0xFFFFFFFF);
 		GRRLIB_PrintfTTF(305, 37, font, anotherSomething(filler, 1), 64, 0xFFFFFFFF);
 		GRRLIB_PrintfTTF(508, 40, font, anotherSomething(filler, 2), 64, 0xFFFFFFFF);
@@ -179,7 +180,7 @@ int main(int argc, char **argv) {
 		
 		
 	}
-
+	//_sleep doesn't work
 	std::this_thread::sleep_for(std::chrono::milliseconds(1000));
 	GRRLIB_FillScreen(0x000000FF);
 	if (winner == '_') {
